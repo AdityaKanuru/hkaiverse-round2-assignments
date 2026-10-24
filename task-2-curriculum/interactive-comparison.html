@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillBridge CSE</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:850px;margin:40px auto;padding:20px;line-height:1.6}
+h1{color:#174ea6}
+input,select{padding:10px;margin:8px 0;width:100%;box-sizing:border-box}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{border:1px solid #ccc;padding:10px;text-align:left}
+</style>
+</head>
+<body>
+<h1>SkillBridge CSE</h1>
+<p>Explore proposed curriculum improvements.</p>
+<label>Search courses</label>
+<input id="search" placeholder="Search by course or skill">
+<label>Filter by action</label>
+<select id="filter">
+<option value="">All actions</option>
+<option>KEEP</option>
+<option>UPDATE</option>
+<option>ADD</option>
+<option>VERIFY</option>
+</select>
+<table>
+<thead><tr><th>Course/Area</th><th>Action</th><th>Reason</th></tr></thead>
+<tbody id="rows"></tbody>
+</table>
+<script>
+const data=[
+["Programming Foundations","KEEP","Essential programming knowledge"],
+["Mathematics","KEEP","Builds analytical foundations"],
+["Data Structures","KEEP","Software development foundation"],
+["OOP in Java","KEEP","Core programming skill"],
+["Algorithms","UPDATE","More problem-solving practice"],
+["DBMS","UPDATE","Realistic database projects"],
+["Web Enabled Technologies","UPDATE","Build complete web applications"],
+["Cloud Computing","UPDATE","Deployment practice"],
+["Deep Learning","UPDATE","Model evaluation projects"],
+["AI Workflow Testing","ADD","Test AI-powered workflows"],
+["Portfolio Capstone","ADD","Demonstrate practical skills"],
+["Internship","VERIFY","Confirm official credits"]
+];
+function render(){
+const q=document.getElementById('search').value.toLowerCase();
+const f=document.getElementById('filter').value;
+document.getElementById('rows').innerHTML=data
+.filter(r=>(!f||r[1]===f)&&r.join(' ').toLowerCase().includes(q))
+.map(r=>'<tr>'+r.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('');
+}
+document.getElementById('search').addEventListener('input',render);
+document.getElementById('filter').addEventListener('change',render);
+render();
+</script>
+</body>
+</html>
