@@ -1,0 +1,11 @@
+flowchart TD
+A[Student submits request] --> B[Check required information]
+B --> C{Information complete?}
+C -- No --> D[Return for correction]
+D --> A
+C -- Yes --> E[Assign responsible owner]
+E --> F[Review and approve if required]
+F --> G{Approved?}
+G -- No --> H[Notify student]
+G -- Yes --> I[Complete request]
+I --> J[Record outcome and notify student]
