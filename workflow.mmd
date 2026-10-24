@@ -1,0 +1,26 @@
+%% Campus Loop — every open request has a visible next owner
+flowchart TD
+    A[Student submits query] --> B[Create ticket ID and acknowledge]
+    B --> C{Required information present?}
+    C -- No --> D[Needs information: ask student]
+    D --> E[Student adds details]
+    E --> C
+    C -- Yes --> F{Duplicate likely?}
+    F -- Yes --> G[Link to existing ticket; human verifies]
+    G --> H[Assigned owner reviews]
+    F -- No --> I[Route by category to accountable owner]
+    I --> J{Owner accepts handoff?}
+    J -- No --> K[Reminder and intake coordinator escalation]
+    K --> I
+    J -- Yes --> H
+    H --> L{Formal approval required?}
+    L -- Yes --> M[Authorised approver decides]
+    M --> N[Owner sends response and logs outcome]
+    L -- No --> N
+    N --> O{Student confirms resolved?}
+    O -- No --> P[Reopen or escalate]
+    P --> H
+    O -- Yes --> Q[Close and retain minimal audit trail]
+    R[Routing/tool failure] -.-> S[Monitored manual queue and reconciliation]
+    I -. failure .-> R
+    style M fill:#fff3cd,stroke:#8a6d3b

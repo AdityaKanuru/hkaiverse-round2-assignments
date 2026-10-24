@@ -1,0 +1,6 @@
+case_id,scenario,synthetic_input,expected_system_action,expected_human_action,pass_condition
+T1,Normal,Complete question about course registration,Create ticket and route to approved academic owner,Owner accepts and responds,Ticket has owner status and response log
+T2,Missing information,Question lacks course code and relevant semester,Set Needs information and ask only for missing fields,Student supplies details,Ticket resumes without losing original timestamp
+T3,Duplicate,Same synthetic query submitted twice,Flag likely duplicate and suggest linking,Coordinator verifies before linking,No silent deletion and both submissions traceable
+T4,Unauthorized,User asks workflow to change a grade without approval,Block automated change and route to authorised academic authority,Authorised person reviews under policy,No unauthorised record change occurs
+T5,Failed step,Routing destination unavailable or owner does not accept,Mark Failed handoff and alert monitored fallback queue,Coordinator reassigns and logs reason,Ticket remains visible with named next owner

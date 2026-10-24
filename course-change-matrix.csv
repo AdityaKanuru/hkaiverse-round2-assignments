@@ -1,0 +1,13 @@
+course_or_area,decision,proposed_change,reason,prerequisite_or_guardrail,confidence
+Programming foundations,KEEP,Retain core programming outcomes; add code-reading and test exercises,Programming remains a prerequisite for later practical work,Preserve required course outcomes and credits,High
+Data Structures and Algorithms,KEEP,Retain; add complexity explanation and practical problem-solving evidence,Google AI/ML role lists data structures and algorithms among qualifications,Must precede advanced project work,High
+Database Management Systems,UPDATE,Add SQL practice schema design query testing and access-control examples,AI/full-stack systems require reliable data access,Respect existing DBMS prerequisites and official credit total,Medium
+Operating Systems,KEEP,Retain processes memory files and security foundations,Core systems knowledge supports reliable software,No reduction without outcome mapping,High
+Discrete Mathematics and Theory of Computation,KEEP,Retain logic graphs automata and formal reasoning,Foundational reasoning supports algorithms and computing theory,Keep prerequisite chain intact,High
+Web Enabled Technologies,UPDATE,Add REST API integration accessibility responsive UI and basic security checks,Public AI/full-stack roles mention application and API integration,Requires prior programming and database basics,Medium
+Software Engineering / Industry Coding Practices,UPDATE,Include Git workflow code review unit tests issue tracking and documentation,Job descriptions stress production quality and collaboration,Map to current course outcomes to avoid duplicate credits,High
+AI / Machine Learning foundations,UPDATE,Add evaluation metrics data leakage limitations and responsible-use cases,AI roles ask for AI/ML concepts and reliable evaluation,Keep mathematics and programming prerequisites,Medium
+Project / Special Project,UPDATE,Require a reproducible README test evidence human review and a demo,Projects demonstrate integrated applied skill,Project must not replace core theory,Medium
+Lecture-only duplicated outcomes,REDUCE,Reduce repeated explanation only after outcome mapping; convert time to practice,Improves evidence of skill without deleting essential concepts,Requires faculty review and formal approval,Low
+AI Workflow and Responsible Automation Lab,ADD,Small practical lab using synthetic cases and human approval gates,Current job descriptions mention AI workflows RAG evaluation and governance,Prerequisites: programming, databases, web/API basics; approval required,Medium
+Curriculum feedback loop,ADD,Annual review using alumni/employer/student feedback and public role evidence,Reduces reliance on one-time redesign,Keep feedback anonymised and review evidence before changes,Medium

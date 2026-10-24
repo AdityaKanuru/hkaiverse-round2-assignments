@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum Change Calculator — IFHE CSE</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;max-width:980px;margin:2rem auto;padding:0 1rem;line-height:1.5;color:#17202a}
+h1{line-height:1.2} .note{border:1px solid #b8c7d9;border-radius:10px;padding:12px;background:#f5f8fb}
+label{display:block;margin:.65rem 0}input,select{padding:.4rem;margin-left:.4rem;max-width:100%}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccd3da;padding:.55rem;text-align:left}th{background:#eef2f6}
+.good{font-weight:700}button{padding:.55rem .8rem;margin:.4rem 0;cursor:pointer}
+small{color:#4a5568}
+</style></head>
+<body>
+<h1>IFHE CSE Curriculum Change Calculator</h1>
+<p class="note"><strong>Important:</strong> These are illustrative example values, not verified 2023-batch IFHE credits. Replace baseline figures with the official regulation before making any claim about total credits. This is a planning aid, not an approved curriculum.</p>
+<label>Verified baseline programme credits (enter only after checking official regulation):
+<input id="base" type="number" min="1" value="160"></label>
+<label>Proposed credits added:
+<input id="add" type="number" min="0" value="3"></label>
+<label>Credits removed or reduced:
+<input id="remove" type="number" min="0" value="1"></label>
+<label>Maximum permitted net change:
+<select id="limit"><option value="20">20%</option><option value="25" selected>25%</option></select></label>
+<button onclick="calc()">Calculate proposed change</button>
+<h2>Result</h2>
+<p id="result" aria-live="polite">Net proposed change: +2 credits (illustrative).</p>
+<table><thead><tr><th>Measure</th><th>Value</th></tr></thead><tbody id="rows"></tbody></table>
+<h2>Filter recommendations</h2>
+<label>Decision:
+<select id="filter" onchange="filterRows()"><option value="ALL">All</option><option>KEEP</option><option>UPDATE</option><option>REDUCE</option><option>ADD</option></select></label>
+<table><thead><tr><th>Area</th><th>Decision</th><th>Proposal</th></tr></thead><tbody id="matrix"></tbody></table>
+<script>
+const items=[
+["Programming foundations","KEEP","Retain outcomes; add code-reading and tests."],
+["Data Structures and Algorithms","KEEP","Retain; add complexity explanation and practice."],
+["Database Management Systems","UPDATE","Add SQL, schema design, query tests and access control."],
+["Operating Systems","KEEP","Retain core systems and security foundations."],
+["Web Enabled Technologies","UPDATE","Add REST APIs, accessibility and basic security."],
+["Software Engineering","UPDATE","Add Git, code review, unit tests and documentation."],
+["Lecture-only duplicated outcomes","REDUCE","Reduce only after outcome mapping and faculty review."],
+["AI Workflow and Responsible Automation Lab","ADD","Small practical lab with synthetic cases and human approval."]
+];
+function calc(){
+ const base=Number(document.getElementById('base').value), add=Number(document.getElementById('add').value), remove=Number(document.getElementById('remove').value), limit=Number(document.getElementById('limit').value);
+ const net=add-remove, pct=base>0?(Math.abs(net)/base*100):NaN, valid=base>0&&add>=0&&remove>=0;
+ document.getElementById('result').textContent=valid?`Net proposed change: ${net>=0?'+':''}${net} credits (${pct.toFixed(2)}% of entered baseline). ${pct<=limit?'Within the selected planning guardrail.':'Above the selected guardrail — revise and verify.'}`:'Enter a positive baseline and non-negative change values.';
+ document.getElementById('rows').innerHTML=valid?[
+ ['Entered baseline credits',base],['Added credits',add],['Removed/reduced credits',remove],['Net change',net],['Absolute net change (%)',pct.toFixed(2)+'%'],['Selected guardrail',limit+'%'],['Illustrative revised total',base+net]
+ ].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join(''):'';
+}
+function filterRows(){
+ const f=document.getElementById('filter').value;
+ document.getElementById('matrix').innerHTML=items.filter(x=>f==='ALL'||x[1]===f).map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td></tr>`).join('');
+}
+calc();filterRows();
+</script>
+</body></html>
