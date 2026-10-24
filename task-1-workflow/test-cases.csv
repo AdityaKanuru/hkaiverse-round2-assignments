@@ -1,0 +1,6 @@
+Case,Scenario,Expected Result,Recovery
+1,Normal request,Request assigned to owner,Complete and notify student
+2,Missing information,Request marked Incomplete,Ask student for missing details
+3,Duplicate request,Duplicate detected,Link to existing request
+4,Unauthorized request,Request rejected or restricted,Refer to authorized owner
+5,Failed step,Request marked Failed,Notify owner and retry safely
