@@ -1,0 +1,18 @@
+Semester,Course or Area,Action,Reason
+1,Programming Foundations,KEEP,Essential programming knowledge
+1,Mathematics,KEEP,Builds analytical foundations
+2,Data Structures,KEEP,Important for software development
+2,Introduction to AI and DS,UPDATE,Add practical exercises
+3,OOP in Java,KEEP,Core programming skill
+3,Algorithms,UPDATE,Increase problem-solving practice
+4,DBMS,UPDATE,Add realistic database projects
+4,Web Enabled Technologies,UPDATE,Build complete web applications
+5,Operating Systems,KEEP,Important computer science foundation
+5,Software Engineering,UPDATE,Include team-based projects
+6,Cloud Computing,UPDATE,Add deployment practice
+6,Computer Vision,KEEP,Useful elective specialization
+7,Deep Learning,UPDATE,Add model evaluation projects
+7,Natural Language Processing,UPDATE,Add practical NLP exercises
+8,Internship,VERIFY,Confirm official credits and requirements
+Proposed,AI Workflow Testing,ADD,Practice testing AI-powered workflows
+Proposed,Portfolio Capstone,ADD,Demonstrate integrated practical skills
